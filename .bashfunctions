@@ -1,0 +1,190 @@
+#!/usr/bin/env bash
+#
+# Bash functions file
+#
+
+function d
+{
+	local host=${DISPLAY%:*};
+	local screen=${DISPLAY#*:*.};
+	local disp=${DISPLAY%.*};
+	disp=${disp#*:};
+	case $# in
+	0)	screen=$[screen + 1] ;;
+	1)	screen=$1;
+		if [ "xx" != "x${screen##[0-9]*}x" ]
+		then	host=$1;disp=0;screen=0;
+		fi;;
+	2)	disp=$1; screen=$2 ;;
+	3)	host=$1; disp=$2; screen=$3 ;;
+	*)	echo 'usage:d [[machine] [disp_num] scrn_num]';
+		echo '  or :d machine';;
+	esac;
+	export DISPLAY=${host}:${disp}.${screen};
+	echo $DISPLAY;
+}
+
+function every
+{
+	if [ $# -lt 2 ]
+	then	echo usage: every seconds command
+		return;
+	fi
+	local seconds=$1; shift
+	while true
+	do
+		eval $*
+		sleep $seconds
+	done
+}
+
+function vstat()
+{
+	file=/tmp/vstat.$$.$RANDOM
+	clear > $file
+	date >> $file
+	eval $* >> $file
+	cat $file
+	rm $file
+}
+
+function ph
+{
+	egrep -ih "$1" ~/lib/phones/*
+}
+
+function psgn
+{
+	ps auxww | egrep -v "[ /]psg | egrep " | egrep $*
+}
+
+function psg
+{
+	#echo "USER       PID %CPU %MEM   SZ  RSS TT STAT START  TIME COMMAND"
+        echo "USER             PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND"
+
+	ps auxww | egrep -v "[ /]psg | egrep " | egrep $*
+}
+
+function pids
+{
+	psgn $* | cut -c14-20
+}
+
+function auth
+{
+	if [ $# -ne 1 ]
+	then	echo "usage: auth hostname";
+	else	xauth nextract - $(hostname):0.0 | rsh $i xauth nmerge -
+	fi
+}
+
+function m
+{
+	(date;make $@;date;banner -w 30 DONE;bell >& /dev/tty) >& $MOUT &
+}
+
+function t { tail $@ $MOUT; }
+
+function o { less $@ $MOUT; }
+
+function ter
+{
+	if [ $# -ne 1 ]
+	then	echo "usage: ter terminalType";
+	else	export TERM="$1";
+		eval $(resize -u);
+		if [ "$TERM" = "xterm" ]; then
+			PROMPT_COMMAND='chk_header_X $HOST $PWD $VOB'
+		fi
+	fi
+}
+
+function be
+{
+	if [ $# -gt 1 ]
+	then	shift;
+	fi
+	env=${HOME}/.bashrc.${1:-root}
+	if [ ! -f $env ]
+	then	env=$ENV
+	fi
+	/bin/su ${1:-root} -c "exec $SHELL -rcfile $env"
+}
+
+function hig
+{
+	history | egrep $*
+}
+
+function vig
+{
+	if [ $# -lt 2 ]
+	then	echo 'usage: vig pattern files';
+	else	local pattern="$1";
+		shift;
+		vi +/"$pattern" $(egrep -l "$pattern" $*);
+	fi
+}
+
+function vigi
+{
+	if [ $# -lt 2 ]
+	then	echo 'usage: vigi pattern files';
+	else	local pattern="$1";
+		shift;
+		vi +/"$pattern" $(egrep -il "$pattern" $*);
+	fi
+}
+
+function vit
+{
+	if [ $# -lt 1 ]
+	then	echo 'usage: vit tag';
+	else	vi -t $1
+	fi
+}
+
+function dmake
+{
+	xmkmf
+	make Makefile "$*"
+	make Makefile "$*"
+	make depend
+}
+
+function title()
+{
+	export WTITLE="$*"
+}
+
+function notitle()
+{
+	export WTITLE=""
+}
+
+function chk_header_X()
+{
+	echo -n ]2\;${WTITLE:-"$1: $2"}]1\;${WTITLE:-"$1"}
+}
+
+function chk_header_VT100()
+{
+	echo -n ]2\;${WTITLE:-"$WPRETITLE$1:  $2"}
+}
+
+function vttitle()
+{
+	PROMPT_COMMAND='chk_header_VT100 $HOST $PWD'
+}
+
+function chk_header_SUN()
+{
+	echo -n "]l${WTITLE:-"$1: $2"}\\"
+	echo -n "]L${WTITLE:-"$1"}\\"
+}
+
+function NOT
+{
+	[ $? -ne 0 ];
+}

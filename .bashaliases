@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Bash aliases
+#
+
+# alias 8='stty -istrip'
+alias bell='echo -n -e \\0007'
+alias c=clear
+alias dir='ls -sCFG'
+alias dira='ls -asFG'
+alias ll='ls -alrthG'
+alias disp='echo $DISPLAY'
+alias pe='find . -name "*~" -print0 | xargs -0 rm -v'
+alias h=history
+alias hi=history
+alias j='jobs -l'
+#alias o='(clear;more $MOUT)' 
+#alias out="busy | sed -e 's/:.*//' -e 's/,v.*//'"
+#alias rs='eval `resize -u`'
+alias xcute="ls -1F | fgrep '*' | sed -e 's/\*//' | pr -4 -t"

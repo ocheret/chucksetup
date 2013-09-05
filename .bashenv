@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Environment variables for bash
+#
+export ENV=~/.bashrc
+export MOUT=make.out.$(hostname)
+export CDPATH=.:..:~:~/src:~/git:~/svn

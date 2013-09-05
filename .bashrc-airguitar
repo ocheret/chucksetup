@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Setup for airguitar
+#
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
+export MATLAB=/Applications/MATLAB_R2012a_Student.app
+export RESIN_HOME=/Users/chuck/resin-4.0.34
+export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.0/lib

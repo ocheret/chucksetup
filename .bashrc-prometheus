@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Setup for airguitar
+#
+export XMLBEANS_HOME=/Users/chuck/lib/xmlbeans-2.6.0
+export PATH=$PATH:$XMLBEANS_HOME/bin
+
+CLASSPATH=$XMLBEANS_HOME/lib/jsr173_1.0_api.jar:$CLASSPATH
+export CLASSPATH=$XMLBEANS_HOME/lib/xbean.jar:$CLASSPATH
+
+export MATLAB=/Applications/MATLAB_R2012a_Student.app
+export RESIN_HOME=/Users/chuck/resin-4.0.34
+export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.0/lib

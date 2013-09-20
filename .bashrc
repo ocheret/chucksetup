@@ -13,7 +13,7 @@ source ~/.bashfunctions
 
 PS1='\h:\W \!\$ '
 
-localrc=$HOME/.bashrc-$(hostname)
+localrc=$HOME/.bashrc-$(hostname -s)
 if [ -f $localrc ]
 then    source $localrc
 fi

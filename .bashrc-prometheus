@@ -5,9 +5,15 @@
 export XMLBEANS_HOME=/Users/chuck/lib/xmlbeans-2.6.0
 export PATH=$PATH:$XMLBEANS_HOME/bin
 
+ANTLR_JAR=/Users/chuck/lib/antlr-4.1-complete.jar
+
+CLASSPATH=.:$ANTLR_JAR:$CLASSPATH
 CLASSPATH=$XMLBEANS_HOME/lib/jsr173_1.0_api.jar:$CLASSPATH
 export CLASSPATH=$XMLBEANS_HOME/lib/xbean.jar:$CLASSPATH
 
 export MATLAB=/Applications/MATLAB_R2012a_Student.app
 export RESIN_HOME=/Users/chuck/resin-4.0.34
 export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.0/lib
+
+alias antlr4='java -jar $ANTLR_JAR'
+alias grun='java org.antlr.v4.runtime.misc.TestRig'

@@ -14,6 +14,7 @@ alias pe='find . -name "*~" -print0 | xargs -0 rm -v'
 alias h=history
 alias hi=history
 alias j='jobs -l'
+alias l='vim -u /usr/share/vim/vim73/macros/less.vim'
 #alias o='(clear;more $MOUT)' 
 #alias out="busy | sed -e 's/:.*//' -e 's/,v.*//'"
 #alias rs='eval `resize -u`'

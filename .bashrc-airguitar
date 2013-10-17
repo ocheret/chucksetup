@@ -6,3 +6,9 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
 export MATLAB=/Applications/MATLAB_R2012a_Student.app
 export RESIN_HOME=/Users/chuck/resin-4.0.34
 export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.0/lib
+
+ANTLR_JAR=/Users/chuck/lib/antlr-4.1-complete.jar
+export CLASSPATH=.:$ANTLR_JAR:$CLASSPATH
+
+alias antlr4='java -jar $ANTLR_JAR'
+alias grun='java org.antlr.v4.runtime.misc.TestRig'

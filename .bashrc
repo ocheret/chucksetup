@@ -11,7 +11,11 @@ source ~/.bashpath
 source ~/.bashaliases
 source ~/.bashfunctions
 
-PS1='\h:\W \!\$ '
+if [ -f ~/git-completion.bash ]
+then    source ~/git-completion.bash
+        PS1='[\h:\W$(__git_ps1 " (%s)")]\!\$ '
+else    PS1='\h:\W \!\$ '
+fi
 
 localrc=$HOME/.bashrc-$(hostname -s)
 if [ -f $localrc ]

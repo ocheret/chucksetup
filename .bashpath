@@ -30,4 +30,7 @@ PATH=/usr/local/share/npm/bin:$PATH
 # Add personal local stuff
 PATH=~/bin:$PATH
 
+# Add /usr/local/bin before /usr/bin
+PATH=/usr/local/bin:$PATH
+
 export PATH

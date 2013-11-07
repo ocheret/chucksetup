@@ -21,7 +21,8 @@ alias grun='java org.antlr.v4.runtime.misc.TestRig'
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/sbin
 export ANT_HOME=/usr/bin/ant
 export ANT_OPTS="-Xms512m -Xmx2048m -XX:MaxPermSize=512m"
-export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+#export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home
 export JAVA_OPTS="-Xms512m -Xmx4096m -XX:MaxPermSize=512m"
 # update these if your agility is checked out to a different directory
 export AGILITY_SRC="$HOME/code/agility"

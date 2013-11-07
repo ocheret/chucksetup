@@ -15,6 +15,7 @@ alias h=history
 alias hi=history
 alias j='jobs -l'
 alias l='vim -u /usr/share/vim/vim73/macros/less.vim'
+alias more='more -R'
 #alias o='(clear;more $MOUT)' 
 #alias out="busy | sed -e 's/:.*//' -e 's/,v.*//'"
 #alias rs='eval `resize -u`'

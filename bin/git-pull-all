@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+for i in $(find . -name .git)
+do
+  workspace=$(dirname "$i")
+  pushd $workspace > /dev/null
+  echo $workspace
+  git pull
+  popd > /dev/null
+done

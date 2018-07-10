@@ -3,6 +3,13 @@
 # Bash functions file
 #
 
+function batts {
+        # Show battery life of attached bluetooth devices
+        ioreg -r -l -k "BatteryPercent" | egrep -i '"Product"|"BatteryPercent"'
+        # Show batter of machine
+        pmset -g batt
+}
+
 function d
 {
 	local host=${DISPLAY%:*};

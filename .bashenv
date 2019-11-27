@@ -10,3 +10,6 @@ export CDPATH=.:..:~:~/src:~/git:~/svn
 # Makes less do syntax highlighting
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=' -R '
+
+# GO
+export GOPATH=/Users/chuck/go

@@ -11,6 +11,8 @@ source ~/.bashpath
 source ~/.bashaliases
 source ~/.bashfunctions
 
+source ~/.bash_pyenv
+
 if [ -f ~/git-completion.bash ]
 then    source ~/git-completion.bash
         PS1='[\h:\W$(__git_ps1 " (%s)")]\!\$ '

@@ -214,3 +214,16 @@ function j18
 function treed {
   find ${*:-.} -type d -print 2>/dev/null|awk '!/\.$/ {for (i=1;i<NF-1;i++){printf("│   ")}print "├── "$NF}'  FS='/'
 }
+
+function yubi_up {
+  export GPG_TTY="$(tty)"
+  : ${BACKUP_SSH_AUTH_SOCK:=$SSH_AUTH_SOCK}
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+  gpg-connect-agent updatestartuptty /bye
+}
+
+function yubi_down {
+  unset GPG_TTY
+  export SSH_AUTH_SOCK="$BACKUP_SSH_AUTH_SOCK"
+}

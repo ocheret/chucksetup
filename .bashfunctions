@@ -88,7 +88,13 @@ function auth
 
 function m
 {
-	(date;make $@;date;banner -w 30 DONE;bell >& /dev/tty) >& $MOUT &
+  (       date;
+          make $@;
+          [[ $? = 0 ]] && res="good" || res="bad";
+          date;
+          banner -w 30 $res;
+          bell >& /dev/tty
+  ) >& $MOUT &
 }
 
 function t { tail $@ $MOUT; }

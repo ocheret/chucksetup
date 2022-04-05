@@ -89,9 +89,12 @@ function auth
 function m
 {
   (       date;
+          start=$(date -u +%s);
           make $@;
           [[ $? = 0 ]] && res="good" || res="bad";
           date;
+          end=$(date -u +%s);
+          echo "Build took $((end-start)) seconds"
           banner -w 30 $res;
           bell >& /dev/tty
   ) >& $MOUT &

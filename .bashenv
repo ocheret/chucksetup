@@ -12,4 +12,5 @@ export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
 # GO
-export GOPATH=/Users/chuck/go
+# Deprecated now that we have go modules
+#export GOPATH=/Users/chuck/go

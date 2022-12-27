@@ -4,28 +4,28 @@
 # export PATH="/Users/chuck/glassfish3/bin:$PATH"
 # export PATH="/Users/chuck/glassfish3/glassfish/bin:$PATH"
 
-PATH="/Users/chuck/anaconda/bin:$PATH"
+#PATH="/Users/chuck/anaconda/bin:$PATH"
 
 # Qt
-PATH=~/Qt5.0.2/5.0.2/clang_64/bin:$PATH
+#PATH=~/Qt5.0.2/5.0.2/clang_64/bin:$PATH
 
 # Resin
-PATH="$RESIN_HOME/bin:$PATH"
+#PATH="$RESIN_HOME/bin:$PATH"
 
 # Added by the Heroku Toolbelt
-PATH="/usr/local/heroku/bin:$PATH"
+#PATH="/usr/local/heroku/bin:$PATH"
 
 # Scala
-PATH=~/src/scala-2.10.1/bin:$PATH
+#PATH=~/src/scala-2.10.1/bin:$PATH
 
 # sbt
 #PATH=~/bin/sbt/bin:$PATH
 
 # CUDA
-PATH=/Developer/NVIDIA/CUDA-5.0/bin:$PATH
+#PATH=/Developer/NVIDIA/CUDA-5.0/bin:$PATH
 
 # node/npm
-PATH=/usr/local/share/npm/bin:$PATH
+#PATH=/usr/local/share/npm/bin:$PATH
 
 # Add personal local stuff
 PATH=~/bin:$PATH
@@ -33,11 +33,18 @@ PATH=~/bin:$PATH
 # Go
 PATH=~/go/bin:$PATH
 
+# Protobuf
+PATH=~/protoc/bin:$PATH
+
 # Cmake
 PATH=/Applications/CMake.app/Contents/bin:$PATH
 
 # Add /usr/local/bin before /usr/bin
 PATH=/usr/local/bin:$PATH
+PATH=/usr/local/sbin:$PATH
+
+# TeX, LaTeX, etc...
+PATH=$PATH:/Library/TeX/texbin
 
 export PATH
 

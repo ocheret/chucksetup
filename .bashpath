@@ -43,6 +43,9 @@ PATH=/Applications/CMake.app/Contents/bin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 
+# Brew
+PATH=/opt/homebrew/bin:$PATH
+
 # TeX, LaTeX, etc...
 PATH=$PATH:/Library/TeX/texbin
 

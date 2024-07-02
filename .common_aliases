@@ -1,9 +1,6 @@
-#!/usr/bin/env bash
 #
-# Bash aliases
+# Common aliases
 #
-
-# alias 8='stty -istrip'
 alias bell='echo -n -e \\0007'
 alias c=clear
 alias dir='ls -sCFG'
@@ -14,9 +11,10 @@ alias pe='find . -name "*~" -print0 | xargs -0 rm -v'
 alias h=history
 alias hi=history
 alias j='jobs -l'
-alias l='vim -u /usr/share/vim/vim73/macros/less.vim'
+alias l=less
 alias more='more -R'
 #alias o='(clear;more $MOUT)' 
 #alias out="busy | sed -e 's/:.*//' -e 's/,v.*//'"
 #alias rs='eval `resize -u`'
+alias vi=nvim
 alias xcute="ls -1F | fgrep '*' | sed -e 's/\*//' | pr -4 -t"

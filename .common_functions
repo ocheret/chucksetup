@@ -1,6 +1,5 @@
-#!/usr/bin/env bash
 #
-# Bash functions file
+# Common functions file
 #
 
 function batts {
@@ -116,17 +115,17 @@ function ter
 	fi
 }
 
-function be
-{
-	if [ $# -gt 1 ]
-	then	shift;
-	fi
-	env=${HOME}/.bashrc.${1:-root}
-	if [ ! -f $env ]
-	then	env=$ENV
-	fi
-	/bin/su ${1:-root} -c "exec $SHELL -rcfile $env"
-}
+# function be
+# {
+# 	if [ $# -gt 1 ]
+# 	then	shift;
+# 	fi
+# 	env=${HOME}/.bashrc.${1:-root}
+# 	if [ ! -f $env ]
+# 	then	env=$ENV
+# 	fi
+# 	/bin/su ${1:-root} -c "exec $SHELL -rcfile $env"
+# }
 
 function hig
 {

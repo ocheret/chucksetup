@@ -1,0 +1,4 @@
+#
+# Bash environment setup
+#
+source ~/.common_env

@@ -1,0 +1,4 @@
+#
+# Zsh path setup
+#
+source ~/.common_path

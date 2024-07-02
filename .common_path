@@ -1,0 +1,15 @@
+#
+# Common path configuration
+#
+
+# Add personal local stuff
+PATH=~/bin:$PATH
+
+# Add /usr/local/bin before /usr/bin
+#PATH=/usr/local/bin:$PATH
+#PATH=/usr/local/sbin:$PATH
+
+# Brew
+#PATH=/opt/homebrew/bin:$PATH
+
+export PATH

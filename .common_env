@@ -1,0 +1,11 @@
+#
+# Common Environment setup for bash and zsh
+#
+
+export MOUT=make.out.$(hostname)
+export CDPATH=.:..:~:~/src:~/git:~/svn
+
+# Makes less do syntax highlighting
+LESSPIPE=`which src-hilite-lesspipe.sh`
+export LESSOPEN="| ${LESSPIPE} %s"
+export LESS=' -R -X -F '

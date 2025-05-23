@@ -17,4 +17,5 @@ alias more='more -R'
 #alias out="busy | sed -e 's/:.*//' -e 's/,v.*//'"
 #alias rs='eval `resize -u`'
 alias vi=nvim
+alias view="nvim -R"
 alias xcute="ls -1F | fgrep '*' | sed -e 's/\*//' | pr -4 -t"

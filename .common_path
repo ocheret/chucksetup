@@ -12,4 +12,10 @@ PATH=~/bin:$PATH
 # Brew
 #PATH=/opt/homebrew/bin:$PATH
 
+# Initialize conda
+if [ -f /opt/anaconda3/etc/profile.d/conda.sh ]
+then    source /opt/anaconda3/etc/profile.d/conda.sh
+else    PATH="/opt/anaconda3/bin:$PATH"
+fi
+
 export PATH

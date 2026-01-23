@@ -4,6 +4,7 @@
 
 # Add personal local stuff
 PATH=~/bin:$PATH
+PATH=~/.local/bin:$PATH
 
 # Add /usr/local/bin before /usr/bin
 #PATH=/usr/local/bin:$PATH

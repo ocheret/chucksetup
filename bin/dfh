@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+"""dfh — df with comma-formatted numbers and selectable units (KB/MB/GB/TB)."""
+import argparse
+import re
+import subprocess
+import sys
+
+ROW = re.compile(r'^(.+?)\s+(\d+)\s+(\d+)\s+(\d+)\s+\d+%\s+(.+)$')
+
+UNITS = {
+    'k': (1,         'KB'),
+    'm': (1024,      'MB'),
+    'g': (1024**2,   'GB'),
+    't': (1024**3,   'TB'),
+}
+
+
+def main():
+    p = argparse.ArgumentParser(
+        description="Disk usage with comma-formatted sizes. "
+                    "With no paths, reports the same volumes as df.")
+    g = p.add_mutually_exclusive_group()
+    for letter, (_, label) in UNITS.items():
+        g.add_argument(f'-{letter}', dest='unit', action='store_const',
+                       const=letter, help=f'show sizes in {label}')
+    p.add_argument('paths', nargs='*',
+                   help='paths to report on (default: all mounts)')
+    args = p.parse_args()
+
+    div, suf = UNITS[args.unit or 'g']
+
+    r = subprocess.run(['df', '-k', '-P', *args.paths],
+                       capture_output=True, text=True)
+    sys.stderr.write(r.stderr)
+    if r.returncode:
+        sys.exit(r.returncode)
+
+    fmt = lambda n: f"{int(n)/div:,.2f} {suf}"
+    rows = [('Filesystem', 'Total', 'Used', 'Free', 'Mounted on')]
+    for line in r.stdout.splitlines()[1:]:
+        m = ROW.match(line)
+        if not m:
+            continue
+        fs, total, used, free, mount = m.groups()
+        rows.append((fs, fmt(total), fmt(used), fmt(free), mount))
+
+    w = [max(len(row[i]) for row in rows) for i in range(5)]
+    for fs, t, u, f, m in rows:
+        print(f"{fs:<{w[0]}}  {t:>{w[1]}}  {u:>{w[2]}}  {f:>{w[3]}}  {m}")
+
+
+if __name__ == '__main__':
+    main()
